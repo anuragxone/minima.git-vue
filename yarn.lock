@@ -1371,7 +1371,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-dom@npm:3.5.14, @vue/compiler-dom@npm:^3.3.4, @vue/compiler-dom@npm:^3.5.0":
+"@vue/compiler-dom@npm:3.5.14, @vue/compiler-dom@npm:^3.3.4, @vue/compiler-dom@npm:^3.5.0, @vue/compiler-dom@npm:^3.5.14":
   version: 3.5.14
   resolution: "@vue/compiler-dom@npm:3.5.14"
   dependencies:
@@ -1558,7 +1558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/server-renderer@npm:3.5.14":
+"@vue/server-renderer@npm:3.5.14, @vue/server-renderer@npm:^3.5.14":
   version: 3.5.14
   resolution: "@vue/server-renderer@npm:3.5.14"
   dependencies:
@@ -3200,8 +3200,10 @@ __metadata:
     "@types/node": "npm:^22.14.0"
     "@vitejs/plugin-vue": "npm:^5.2.3"
     "@vitest/eslint-plugin": "npm:^1.1.39"
+    "@vue/compiler-dom": "npm:^3.5.14"
     "@vue/eslint-config-prettier": "npm:^10.2.0"
     "@vue/eslint-config-typescript": "npm:^14.5.0"
+    "@vue/server-renderer": "npm:^3.5.14"
     "@vue/test-utils": "npm:^2.4.6"
     "@vue/tsconfig": "npm:^0.7.0"
     eslint: "npm:^9.22.0"
