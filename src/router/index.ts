@@ -21,6 +21,11 @@ const router = createRouter({
       path: '/auth',
       name: 'auth',
       component: () => import('@/components/Authentication01.vue')
+    },
+    {
+      path: '/landing',
+      name: 'landing',
+      component: () => import('@/components/TypewriterText.vue')
     }
   ],
 })
