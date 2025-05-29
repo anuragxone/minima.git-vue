@@ -5,9 +5,9 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-import LoginForm from '@/components/LoginForm.vue'
+// import LoginForm from '@/components/LoginForm.vue'
 
-const app = createApp(LoginForm)
+const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
