@@ -20,7 +20,7 @@ const router = createRouter({
     {
       path: '/auth',
       name: 'auth',
-      component: () => import('@/components/Authentication01.vue')
+      component: () => import('@/components/AuthLogin.vue')
     },
     {
       path: '/landing',

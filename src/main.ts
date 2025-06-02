@@ -8,7 +8,7 @@ import router from './router'
 // import LoginForm from '@/components/LoginForm.vue'
 import TypewriterText from './components/TypewriterText.vue'
 
-const app = createApp(TypewriterText)
+const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)

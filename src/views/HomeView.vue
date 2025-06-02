@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import TypewriterText from '@/components/TypewriterText.vue';
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <TypewriterText></TypewriterText>
   </main>
 </template>
