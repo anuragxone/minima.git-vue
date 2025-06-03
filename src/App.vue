@@ -1,26 +1,10 @@
 <script setup lang="ts">
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle
-} from '@/components/ui/navigation-menu'
+
+// import NavMenu from './components/NavMenu.vue';
 
 </script>
 
 <template>
-  <NavigationMenu>
-    <NavigationMenuList class="font-roboto-mono">
-      <NavigationMenuItem>
-        <!-- <NavigationMenuLink :class="navigationMenuTriggerStyle()" class=" font-roboto-mono subpixel-antialiased"> -->
-        <RouterLink to="/" :class="navigationMenuTriggerStyle()">Home</RouterLink>
-        <!-- </NavigationMenuLink> -->
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <RouterLink to="/auth" :class="navigationMenuTriggerStyle()">Auth</RouterLink>
-      </NavigationMenuItem>
-    </NavigationMenuList>
-  </NavigationMenu>
-
+  <!-- <NavMenu/> -->
   <RouterView />
 </template>
