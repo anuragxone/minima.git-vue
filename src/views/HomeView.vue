@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import DarkModeToggle from '@/components/DarkModeToggle.vue';
 import TypewriterText from '@/components/TypewriterText.vue';
+import Button from '@/components/ui/button/Button.vue';
 </script>
 
 <template>
-  <main>
-    <div class=" flex flex-col h-screen">
-      <div class=" flex flex-row-reverse">
-        <div class=" p-4">
-          <DarkModeToggle />
-        </div>
-
-      </div>
-      <div class=" absolute flex size-full justify-center items-center">
-        <TypewriterText />
-      </div>
+  <div class=" flex flex-col h-screen justify-center items-center space-y-8">
+    <TypewriterText />
+    <div class=" flex flex-row space-x-8">
+      <Button as-child>
+        <RouterLink to="/signin">Sign in</RouterLink>
+      </Button>
+      <DarkModeToggle />
     </div>
-  </main>
+
+  </div>
 </template>
