@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import DarkModeToggle from '@/components/DarkModeToggle.vue';
-import TypewriterText from '@/components/TypewriterText.vue';
-import Button from '@/components/ui/button/Button.vue';
+import DarkModeToggle from '@/components/DarkModeToggle.vue'
+import TypewriterText from '@/components/TypewriterText.vue'
+import Button from '@/components/ui/button/Button.vue'
+import router from '@/router'
+
+const onClick = () => {
+  router.push({
+    name: 'signin',
+  })
+}
 </script>
 
 <template>
-  <div class=" flex flex-col h-screen justify-center items-center space-y-8">
+  <div class="flex flex-col h-screen justify-center items-center space-y-8">
     <TypewriterText />
-    <div class=" flex flex-row space-x-8">
-      <Button as-child>
-        <RouterLink to="/signin">Sign in</RouterLink>
-      </Button>
+    <div class="flex flex-row space-x-8">
+      <Button @click="onClick" class="cursor-pointer">Sign in</Button>
       <DarkModeToggle />
     </div>
-
   </div>
 </template>

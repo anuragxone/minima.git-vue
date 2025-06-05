@@ -3,9 +3,8 @@ import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-  navigationMenuTriggerStyle
+  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-
 </script>
 
 <template>

@@ -2,9 +2,7 @@
 import { ref, onMounted } from 'vue'
 
 // Reactive state variables using ref()
-const phrases = ref([
-  'minima.git'
-])
+const phrases = ref(['minima.git'])
 const phraseIndex = ref(0)
 const charIndex = ref(0)
 const displayedText = ref('')
@@ -50,7 +48,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1 class="  scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl font-mono ">
-    <span>{{ displayedText }}</span><span class=" animate-caret-blink">█</span>
+  <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl font-mono">
+    <span>{{ displayedText }}</span
+    ><span class="animate-caret-blink">█</span>
   </h1>
 </template>

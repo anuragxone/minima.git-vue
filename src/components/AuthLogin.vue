@@ -7,7 +7,14 @@ export const containerClass = 'w-full h-screen flex items-center justify-center 
 
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 </script>
@@ -15,12 +22,8 @@ import { Label } from '@/components/ui/label'
 <template>
   <Card class="w-full max-w-sm">
     <CardHeader>
-      <CardTitle class="text-2xl">
-        Login
-      </CardTitle>
-      <CardDescription>
-        Enter your email below to login to your account.
-      </CardDescription>
+      <CardTitle class="text-2xl"> Login </CardTitle>
+      <CardDescription> Enter your email below to login to your account. </CardDescription>
     </CardHeader>
     <CardContent class="grid gap-4">
       <div class="grid gap-2">
@@ -33,9 +36,7 @@ import { Label } from '@/components/ui/label'
       </div>
     </CardContent>
     <CardFooter>
-      <Button class="w-full">
-        Sign in
-      </Button>
+      <Button class="w-full"> Sign in </Button>
     </CardFooter>
   </Card>
 </template>
