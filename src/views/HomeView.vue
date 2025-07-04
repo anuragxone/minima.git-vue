@@ -15,7 +15,7 @@ const onClick = () => {
   <div class="flex flex-col h-screen justify-center items-center space-y-8">
     <TypewriterText />
     <div class="flex flex-row space-x-8">
-      <Button @click="onClick" class="cursor-pointer">Sign in</Button>
+      <Button @click="onClick">Sign in</Button>
       <DarkModeToggle />
     </div>
   </div>
