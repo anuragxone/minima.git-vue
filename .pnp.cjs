@@ -58,6 +58,7 @@ const RAW_RUNTIME_STATE =
           ["tw-animate-css", "npm:1.3.5"],\
           ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"],\
           ["vite", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:7.0.2"],\
+          ["vite-plugin-inspect", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:11.3.0"],\
           ["vite-plugin-vue-devtools", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:7.7.7"],\
           ["vitest", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:3.2.4"],\
           ["vue", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:3.5.17"],\
@@ -2956,6 +2957,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["ansis", [\
+      ["npm:4.1.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/ansis-npm-4.1.0-c2d4709b1e-10c0.zip/node_modules/ansis/",\
+        "packageDependencies": [\
+          ["ansis", "npm:4.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["argparse", [\
       ["npm:2.0.1", {\
         "packageLocation": "../../../.yarn/berry/cache/argparse-npm-2.0.1-faff7999e6-10c0.zip/node_modules/argparse/",\
@@ -3505,6 +3515,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/error-stack-parser-es-npm-0.1.5-95e4b831f8-10c0.zip/node_modules/error-stack-parser-es/",\
         "packageDependencies": [\
           ["error-stack-parser-es", "npm:0.1.5"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.0.5", {\
+        "packageLocation": "../../../.yarn/berry/cache/error-stack-parser-es-npm-1.0.5-b1be630043-10c0.zip/node_modules/error-stack-parser-es/",\
+        "packageDependencies": [\
+          ["error-stack-parser-es", "npm:1.0.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4867,6 +4884,7 @@ const RAW_RUNTIME_STATE =
           ["tw-animate-css", "npm:1.3.5"],\
           ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"],\
           ["vite", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:7.0.2"],\
+          ["vite-plugin-inspect", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:11.3.0"],\
           ["vite-plugin-vue-devtools", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:7.7.7"],\
           ["vitest", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:3.2.4"],\
           ["vue", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:3.5.17"],\
@@ -6225,6 +6243,17 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["unplugin-utils", [\
+      ["npm:0.2.4", {\
+        "packageLocation": "../../../.yarn/berry/cache/unplugin-utils-npm-0.2.4-eda1881681-10c0.zip/node_modules/unplugin-utils/",\
+        "packageDependencies": [\
+          ["pathe", "npm:2.0.3"],\
+          ["picomatch", "npm:4.0.2"],\
+          ["unplugin-utils", "npm:0.2.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["update-browserslist-db", [\
       ["npm:1.1.3", {\
         "packageLocation": "../../../.yarn/berry/cache/update-browserslist-db-npm-1.1.3-569a9be54b-10c0.zip/node_modules/update-browserslist-db/",\
@@ -6451,6 +6480,30 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["vite-dev-rpc", [\
+      ["npm:1.1.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/vite-dev-rpc-npm-1.1.0-9ecdc30ec8-10c0.zip/node_modules/vite-dev-rpc/",\
+        "packageDependencies": [\
+          ["vite-dev-rpc", "npm:1.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:a643f118df5ce717eeb25e9b62b925ae404f80623cfe612ac2c2e01bf27e4551b14e5df7f73718bced20f5f898718984e5e6345afc602b6cc068f7b58305910a#npm:1.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/vite-dev-rpc-virtual-08cf5cb9c8/4/.yarn/berry/cache/vite-dev-rpc-npm-1.1.0-9ecdc30ec8-10c0.zip/node_modules/vite-dev-rpc/",\
+        "packageDependencies": [\
+          ["@types/vite", null],\
+          ["birpc", "npm:2.4.0"],\
+          ["vite", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:7.0.2"],\
+          ["vite-dev-rpc", "virtual:a643f118df5ce717eeb25e9b62b925ae404f80623cfe612ac2c2e01bf27e4551b14e5df7f73718bced20f5f898718984e5e6345afc602b6cc068f7b58305910a#npm:1.1.0"],\
+          ["vite-hot-client", "virtual:08cf5cb9c87138f2fbd64bdc3c251cfadc1a8d314c6af437999ac8c69d59912c74a7982f92e8b66e5f30bf561d172db542aee84c01bc11664897a73db6a551b3#npm:2.1.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/vite",\
+          "vite"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["vite-hot-client", [\
       ["npm:2.1.0", {\
         "packageLocation": "../../../.yarn/berry/cache/vite-hot-client-npm-2.1.0-be5b5afbb5-10c0.zip/node_modules/vite-hot-client/",\
@@ -6458,6 +6511,19 @@ const RAW_RUNTIME_STATE =
           ["vite-hot-client", "npm:2.1.0"]\
         ],\
         "linkType": "SOFT"\
+      }],\
+      ["virtual:08cf5cb9c87138f2fbd64bdc3c251cfadc1a8d314c6af437999ac8c69d59912c74a7982f92e8b66e5f30bf561d172db542aee84c01bc11664897a73db6a551b3#npm:2.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/vite-hot-client-virtual-188d59d4ba/4/.yarn/berry/cache/vite-hot-client-npm-2.1.0-be5b5afbb5-10c0.zip/node_modules/vite-hot-client/",\
+        "packageDependencies": [\
+          ["@types/vite", null],\
+          ["vite", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:7.0.2"],\
+          ["vite-hot-client", "virtual:08cf5cb9c87138f2fbd64bdc3c251cfadc1a8d314c6af437999ac8c69d59912c74a7982f92e8b66e5f30bf561d172db542aee84c01bc11664897a73db6a551b3#npm:2.1.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/vite",\
+          "vite"\
+        ],\
+        "linkType": "HARD"\
       }],\
       ["virtual:ea36f31f8ebdf72d6fcf15c25ecfd90c9fccaadf998de42bd9f867554d1c4f0c8eb7827891608eba3f0e0ccf835c16b275bc9269afc6fb770e53826af0e8d018#npm:2.1.0", {\
         "packageLocation": "./.yarn/__virtual__/vite-hot-client-virtual-ced2c40e20/4/.yarn/berry/cache/vite-hot-client-npm-2.1.0-be5b5afbb5-10c0.zip/node_modules/vite-hot-client/",\
@@ -6495,6 +6561,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
+      ["npm:11.3.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/vite-plugin-inspect-npm-11.3.0-50f0e89f8f-10c0.zip/node_modules/vite-plugin-inspect/",\
+        "packageDependencies": [\
+          ["vite-plugin-inspect", "npm:11.3.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
       ["virtual:ec6e5a2eb85229127dd57ccf853c4dfb7b506c4b704f80114fe53a3fb832ddadbd123dd9909c92ddd152abd75c56e5ac0321b75fcbaa27a5503300a28c0a7244#npm:0.8.9", {\
         "packageLocation": "./.yarn/__virtual__/vite-plugin-inspect-virtual-d132ca744e/4/.yarn/berry/cache/vite-plugin-inspect-npm-0.8.9-4f5d702081-10c0.zip/node_modules/vite-plugin-inspect/",\
         "packageDependencies": [\
@@ -6512,6 +6585,32 @@ const RAW_RUNTIME_STATE =
           ["sirv", "npm:3.0.1"],\
           ["vite", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:7.0.2"],\
           ["vite-plugin-inspect", "virtual:ec6e5a2eb85229127dd57ccf853c4dfb7b506c4b704f80114fe53a3fb832ddadbd123dd9909c92ddd152abd75c56e5ac0321b75fcbaa27a5503300a28c0a7244#npm:0.8.9"]\
+        ],\
+        "packagePeers": [\
+          "@nuxt/kit",\
+          "@types/nuxt__kit",\
+          "@types/vite",\
+          "vite"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:11.3.0", {\
+        "packageLocation": "./.yarn/__virtual__/vite-plugin-inspect-virtual-a643f118df/4/.yarn/berry/cache/vite-plugin-inspect-npm-11.3.0-50f0e89f8f-10c0.zip/node_modules/vite-plugin-inspect/",\
+        "packageDependencies": [\
+          ["@nuxt/kit", null],\
+          ["@types/nuxt__kit", null],\
+          ["@types/vite", null],\
+          ["ansis", "npm:4.1.0"],\
+          ["debug", "virtual:4e6ee068106e50c0ed65d676cd1062ed31b6b17dae51637f151faa2a7d036a3f005cf9381b688de6e583fa94f1993e740a8c1467b526284aef6c98b23a98d241#npm:4.4.1"],\
+          ["error-stack-parser-es", "npm:1.0.5"],\
+          ["ohash", "npm:2.0.11"],\
+          ["open", "npm:10.1.2"],\
+          ["perfect-debounce", "npm:1.0.0"],\
+          ["sirv", "npm:3.0.1"],\
+          ["unplugin-utils", "npm:0.2.4"],\
+          ["vite", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:7.0.2"],\
+          ["vite-dev-rpc", "virtual:a643f118df5ce717eeb25e9b62b925ae404f80623cfe612ac2c2e01bf27e4551b14e5df7f73718bced20f5f898718984e5e6345afc602b6cc068f7b58305910a#npm:1.1.0"],\
+          ["vite-plugin-inspect", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:11.3.0"]\
         ],\
         "packagePeers": [\
           "@nuxt/kit",\
