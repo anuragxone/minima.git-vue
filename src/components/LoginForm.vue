@@ -36,12 +36,15 @@ const props = defineProps<{
             </div>
             <div class="flex flex-col gap-3">
               <Button type="submit" class="w-full"> Login </Button>
-              <Button variant="outline" class="w-full"> Login with Google </Button>
+              <!-- Disable: Google login button -->
+              <!-- <Button variant="outline" class="w-full"> Login with Google </Button> -->
             </div>
           </div>
           <div class="mt-4 text-center text-sm">
             Don't have an account?
-            <a href="#" class="underline underline-offset-4"> Sign up </a>
+            <RouterLink class="underline underline-offset-4" :to="{ name: 'signup' }">
+              Sign up
+            </RouterLink>
           </div>
         </form>
       </CardContent>
