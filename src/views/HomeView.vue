@@ -2,27 +2,19 @@
 import DarkModeToggle from '@/components/DarkModeToggle.vue'
 import TypewriterText from '@/components/TypewriterText.vue'
 import Button from '@/components/ui/button/Button.vue'
-import router from '@/router'
-
-const routeToSignIn = () => {
-  router.push({
-    name: 'signin',
-  })
-}
-
-const routeToExplore = () => {
-  router.push({
-    name: 'explore',
-  })
-}
 </script>
 
 <template>
   <div class="flex flex-col min-h-svh justify-center items-center space-y-8">
     <TypewriterText />
     <div class="flex flex-row space-x-4">
-      <Button @click="routeToExplore" variant="default">Explore</Button>
-      <Button @click="routeToSignIn" variant="secondary">Sign in</Button>
+      <RouterLink :to="{ name: 'explore' }">
+        <Button variant="default">Explore</Button>
+      </RouterLink>
+      <RouterLink :to="{ name: 'signin' }">
+        <Button variant="outline">Sign in</Button>
+      </RouterLink>
+
       <DarkModeToggle />
     </div>
   </div>

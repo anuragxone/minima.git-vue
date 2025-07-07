@@ -43,7 +43,7 @@ import { Label } from '@/components/ui/label'
           <Input id="password" type="password" />
         </div>
         <Button type="submit" class="w-full"> Create an account </Button>
-        <Button variant="outline" class="w-full"> Sign up with GitHub </Button>
+        <!-- <Button variant="outline" class="w-full"> Sign up with GitHub </Button> -->
       </div>
       <div class="mt-4 text-center text-sm">
         Already have an account?
