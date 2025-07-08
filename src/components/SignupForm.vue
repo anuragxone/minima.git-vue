@@ -16,7 +16,6 @@ import type { User, UserRequest, UserResponse } from '@/models/User'
 import SignupSuccessfulAlert from './SignupSuccessfulAlert.vue'
 import SignupFailedAlert from './SignupFailedAlert.vue'
 
-
 const userData = reactive<User>({
   email: '',
   password: '',
@@ -24,34 +23,32 @@ const userData = reactive<User>({
 })
 
 const requestData = reactive<UserRequest>({
-  user: userData
+  user: userData,
 })
 
 const responseData = ref<UserResponse | null>(null)
-const loading = ref(false);
-const error = ref<string | null>(null);
+const loading = ref(false)
+const error = ref<string | null>(null)
 
 const registerUser = async (payload: UserRequest) => {
-  loading.value = true;
-  error.value = null;
+  loading.value = true
+  error.value = null
   try {
-    const response = await axios.post<UserResponse>('http://localhost:3000/auth/signup', payload);
-    responseData.value = response.data;
+    const response = await axios.post<UserResponse>('http://localhost:3000/auth/signup', payload)
+    responseData.value = response.data
     console.log(responseData.value)
   } catch (err) {
-    error.value = err?.response?.data?.message || 'Something went wrong';
-    console.error(err);
+    error.value = err?.response?.data?.message || 'Something went wrong'
+    console.error(err)
   } finally {
-    loading.value = false;
+    loading.value = false
   }
-};
+}
 
 // onMounted(() => {
 //   fetchData();
 // })
 </script>
-
-
 
 <template>
   <form @submit.prevent="registerUser(requestData)">
@@ -78,7 +75,13 @@ const registerUser = async (payload: UserRequest) => {
           </div>
           <div class="grid gap-2">
             <Label for="email">Email</Label>
-            <Input id="email" type="email" placeholder="m@example.com" v-model="userData.email" required />
+            <Input
+              id="email"
+              type="email"
+              placeholder="m@example.com"
+              v-model="userData.email"
+              required
+            />
           </div>
           <div class="grid gap-2">
             <Label for="password">Password</Label>
@@ -86,7 +89,8 @@ const registerUser = async (payload: UserRequest) => {
           </div>
           <Button type="submit" class="w-full" :disabled="loading">
             {{ loading ? 'Creating Account...' : 'Create an account' }}
-          </Button> <!-- <Button variant="outline" class="w-full"> Sign up with GitHub </Button> -->
+          </Button>
+          <!-- <Button variant="outline" class="w-full"> Sign up with GitHub </Button> -->
         </div>
         <div class="mt-4 text-center text-sm">
           Already have an account?
@@ -99,7 +103,6 @@ const registerUser = async (payload: UserRequest) => {
       <div v-if="responseData">
         <SignupSuccessfulAlert />
       </div>
-
     </Card>
   </form>
 </template>

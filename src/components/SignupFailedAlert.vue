@@ -7,8 +7,6 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
   <Alert variant="destructive">
     <AlertCircle class="w-4 h-4" />
     <AlertTitle>Error</AlertTitle>
-    <AlertDescription>
-      Signup failed.
-    </AlertDescription>
+    <AlertDescription> Signup failed. </AlertDescription>
   </Alert>
 </template>
