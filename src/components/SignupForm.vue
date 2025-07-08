@@ -15,6 +15,12 @@ import axios from 'axios'
 import type { User, UserRequest, UserResponse } from '@/models/User'
 import SignupSuccessfulAlert from './SignupSuccessfulAlert.vue'
 import SignupFailedAlert from './SignupFailedAlert.vue'
+import { Eye, EyeOff } from 'lucide-vue-next'
+
+const responseData = ref<UserResponse | null>(null)
+const loading = ref(false)
+const error = ref<string | null>(null)
+const showPassword = ref(false)
 
 const userData = reactive<User>({
   email: '',
@@ -25,10 +31,6 @@ const userData = reactive<User>({
 const requestData = reactive<UserRequest>({
   user: userData,
 })
-
-const responseData = ref<UserResponse | null>(null)
-const loading = ref(false)
-const error = ref<string | null>(null)
 
 const registerUser = async (payload: UserRequest) => {
   loading.value = true
@@ -85,7 +87,25 @@ const registerUser = async (payload: UserRequest) => {
           </div>
           <div class="grid gap-2">
             <Label for="password">Password</Label>
-            <Input id="password" type="password" v-model="userData.password" required />
+            <div class="flex flex-row space-x-2">
+              <Input
+                id="password"
+                :type="showPassword ? 'text' : 'password'"
+                v-model="userData.password"
+                required
+              />
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                @click="showPassword = !showPassword"
+              >
+                <component :is="showPassword ? EyeOff : Eye" class="w-4 h-4" />
+                <span class="sr-only">
+                  {{ showPassword ? 'Hide password' : 'Show password' }}
+                </span>
+              </Button>
+            </div>
           </div>
           <Button type="submit" class="w-full" :disabled="loading">
             {{ loading ? 'Creating Account...' : 'Create an account' }}
@@ -100,7 +120,7 @@ const registerUser = async (payload: UserRequest) => {
       <div v-if="error">
         <SignupFailedAlert />
       </div>
-      <div v-if="responseData">
+      <div v-else-if="responseData">
         <SignupSuccessfulAlert />
       </div>
     </Card>
