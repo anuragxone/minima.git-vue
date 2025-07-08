@@ -116,13 +116,13 @@ const registerUser = async (payload: UserRequest) => {
           Already have an account?
           <RouterLink :to="{ name: 'signin' }" class="underline"> Sign in </RouterLink>
         </div>
+        <div v-if="error">
+          <SignupFailedAlert />
+        </div>
+        <div v-else-if="responseData">
+          <SignupSuccessfulAlert />
+        </div>
       </CardContent>
-      <div v-if="error">
-        <SignupFailedAlert />
-      </div>
-      <div v-else-if="responseData">
-        <SignupSuccessfulAlert />
-      </div>
     </Card>
   </form>
 </template>
