@@ -11,24 +11,24 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ref, reactive } from 'vue'
+import type { Ref } from 'vue'
 import axios from 'axios'
 import type { User, UserRequest, UserResponse } from '@/models/User'
 import SignupSuccessfulAlert from './SignupSuccessfulAlert.vue'
 import SignupFailedAlert from './SignupFailedAlert.vue'
-import { Eye, EyeOff } from 'lucide-vue-next'
+import PasswordInput from '@/components/PasswordInput.vue'
 
-const responseData = ref<UserResponse | null>(null)
+const responseData: Ref<UserResponse | null> = ref(null)
 const loading = ref(false)
-const error = ref<string | null>(null)
-const showPassword = ref(false)
+const error: Ref<string | null> = ref(null)
 
-const userData = reactive<User>({
+const userData: User = reactive({
   email: '',
   password: '',
   slug: '',
 })
 
-const requestData = reactive<UserRequest>({
+const requestData: UserRequest = reactive({
   user: userData,
 })
 
@@ -87,25 +87,7 @@ const registerUser = async (payload: UserRequest) => {
           </div>
           <div class="grid gap-2">
             <Label for="password">Password</Label>
-            <div class="flex flex-row space-x-2">
-              <Input
-                id="password"
-                :type="showPassword ? 'text' : 'password'"
-                v-model="userData.password"
-                required
-              />
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                @click="showPassword = !showPassword"
-              >
-                <component :is="showPassword ? EyeOff : Eye" class="w-4 h-4" />
-                <span class="sr-only">
-                  {{ showPassword ? 'Hide password' : 'Show password' }}
-                </span>
-              </Button>
-            </div>
+            <PasswordInput id="password" v-model:password="userData.password" required />
           </div>
           <Button type="submit" class="w-full" :disabled="loading">
             {{ loading ? 'Creating Account...' : 'Create an account' }}

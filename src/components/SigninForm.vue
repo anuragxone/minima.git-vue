@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import PasswordInput from '@/components/PasswordInput.vue'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
@@ -32,7 +33,8 @@ const props = defineProps<{
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" required />
+              <!-- <Input id="password" type="password" required /> -->
+              <PasswordInput v-model="password" />
             </div>
             <div class="flex flex-col gap-3">
               <Button type="submit" class="w-full"> Login </Button>
