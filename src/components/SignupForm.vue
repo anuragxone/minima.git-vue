@@ -14,9 +14,21 @@ import { ref, reactive } from 'vue'
 import type { Ref } from 'vue'
 import axios from 'axios'
 import type { User, UserRequest, UserResponse } from '@/models/User'
+import { userRequestSchema, userResponseSchema, userSchema } from '@/models/User'
 import SignupSuccessfulAlert from './SignupSuccessfulAlert.vue'
 import SignupFailedAlert from './SignupFailedAlert.vue'
 import PasswordInput from '@/components/PasswordInput.vue'
+import { useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/zod'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormLabel,
+  FormMessage,
+  FormItem,
+} from '@/components/ui/form'
 
 const responseData: Ref<UserResponse | null> = ref(null)
 const loading = ref(false)
@@ -30,6 +42,11 @@ const userData: User = reactive({
 
 const requestData: UserRequest = reactive({
   user: userData,
+})
+
+const formSchema = toTypedSchema(userRequestSchema)
+const form = useForm({
+  validationSchema: formSchema,
 })
 
 const registerUser = async (payload: UserRequest) => {
@@ -47,64 +64,87 @@ const registerUser = async (payload: UserRequest) => {
   }
 }
 
-// onMounted(() => {
-//   fetchData();
-// })
+const onSubmit = form.handleSubmit(registerUser)
 </script>
 
 <template>
-  <form @submit.prevent="registerUser(requestData)">
-    <Card class="mx-auto max-w-sm">
-      <CardHeader>
-        <CardTitle class="text-xl"> Sign Up </CardTitle>
-        <CardDescription> Enter your information to create an account </CardDescription>
-      </CardHeader>
-      <CardContent>
+  <Card class="mx-auto max-w-sm">
+    <CardHeader>
+      <CardTitle class="text-xl"> Sign Up </CardTitle>
+      <CardDescription> Enter your information to create an account </CardDescription>
+    </CardHeader>
+    <CardContent>
+      <form @submit.prevent="onSubmit">
         <div class="grid gap-4">
-          <!-- <div class="grid grid-cols-2 gap-4"> -->
-          <!-- <div class="grid gap-2">
-            <Label for="first-name">First name</Label>
-            <Input id="first-name" placeholder="Max" required />
-          </div> -->
-          <!-- <div class="grid gap-2">
-            <Label for="last-name">Last name</Label>
-            <Input id="last-name" placeholder="Robinson" required />
-          </div> -->
-          <!-- </div> -->
           <div class="grid gap-2">
-            <Label for="slug">Username</Label>
-            <Input id="slug" type="text" placeholder="admin1234" v-model="userData.slug" required />
+            <FormField name="username">
+              <FormItem>
+                <FormLabel>Username</FormLabel>
+                <FormControl>
+                  <Input type="text" placeholder="johndoe" v-model="userData.slug" required />
+                </FormControl>
+                <!-- <FormDescription> This is your public display name. </FormDescription> -->
+                <FormMessage />
+              </FormItem>
+            </FormField>
+            <!-- <Label for="slug">Username</Label> -->
+            <!-- <Input id="slug" type="text" placeholder="johndoe" v-model="userData.slug" required /> -->
           </div>
           <div class="grid gap-2">
-            <Label for="email">Email</Label>
+            <!-- <Label for="email">Email</Label>
             <Input
               id="email"
               type="email"
               placeholder="m@example.com"
               v-model="userData.email"
               required
-            />
+            /> -->
+            <FormField name="email">
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="johndoe@gmail.com"
+                    v-model="userData.email"
+                    required
+                  />
+                </FormControl>
+                <!-- <FormDescription> This is your public display name. </FormDescription> -->
+                <FormMessage />
+              </FormItem>
+            </FormField>
           </div>
           <div class="grid gap-2">
-            <Label for="password">Password</Label>
-            <PasswordInput id="password" v-model:password="userData.password" required />
+            <FormField name="password">
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <PasswordInput id="password" v-model:password="userData.password" required />
+                </FormControl>
+                <!-- <FormDescription> This is your public display name. </FormDescription> -->
+                <FormMessage />
+              </FormItem>
+            </FormField>
+
+            <!-- <Label for="password">Password</Label> -->
+            <!-- <PasswordInput id="password" v-model:password="userData.password" required /> -->
           </div>
           <Button type="submit" class="w-full" :disabled="loading">
             {{ loading ? 'Creating Account...' : 'Create an account' }}
           </Button>
-          <!-- <Button variant="outline" class="w-full"> Sign up with GitHub </Button> -->
         </div>
-        <div class="mt-4 text-center text-sm">
-          Already have an account?
-          <RouterLink :to="{ name: 'signin' }" class="underline"> Sign in </RouterLink>
-        </div>
-        <div v-if="error">
-          <SignupFailedAlert />
-        </div>
-        <div v-else-if="responseData">
-          <SignupSuccessfulAlert />
-        </div>
-      </CardContent>
-    </Card>
-  </form>
+      </form>
+      <div class="mt-4 text-center text-sm">
+        Already have an account?
+        <RouterLink :to="{ name: 'signin' }" class="underline"> Sign in </RouterLink>
+      </div>
+      <div v-if="error">
+        <SignupFailedAlert />
+      </div>
+      <div v-else-if="responseData">
+        <SignupSuccessfulAlert />
+      </div>
+    </CardContent>
+  </Card>
 </template>

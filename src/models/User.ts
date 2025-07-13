@@ -1,17 +1,25 @@
-export interface User {
-  email: string
-  password: string
-  slug?: string
-}
+import * as z from 'zod'
 
-export interface UserRequest {
-  user: User
-}
+export const userSchema = z.object({
+  email: z.email(),
+  password: z.string().min(8),
+  slug: z.string().optional(),
+})
 
-export interface UserResponse {
-  id: number
-  email: string
-  slug: string
-  created_at: string
-  updated_at: string
-}
+export type User = z.infer<typeof userSchema>
+
+export const userRequestSchema = z.object({
+  user: userSchema,
+})
+
+export type UserRequest = z.infer<typeof userRequestSchema>
+
+export const userResponseSchema = z.object({
+  id: z.number(),
+  email: z.string(),
+  slug: z.string(),
+  created_at: z.string(),
+  updated_at: z.string(),
+})
+
+export type UserResponse = z.infer<typeof userResponseSchema>
