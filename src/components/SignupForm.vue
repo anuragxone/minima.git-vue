@@ -10,14 +10,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { ref, reactive } from 'vue'
+import { ref } from 'vue'
 import type { Ref } from 'vue'
 import axios from 'axios'
-import type { User, UserRequest, UserResponse } from '@/models/User'
-import { userRequestSchema, userResponseSchema, userSchema } from '@/models/User'
+import type { UserRequest, UserResponse } from '@/models/User'
+import { userRequestSchema } from '@/schemas/user'
 import SignupSuccessfulAlert from './SignupSuccessfulAlert.vue'
 import SignupFailedAlert from './SignupFailedAlert.vue'
-import PasswordInput from '@/components/PasswordInput.vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import {
@@ -34,22 +33,29 @@ const responseData: Ref<UserResponse | null> = ref(null)
 const loading = ref(false)
 const error: Ref<string | null> = ref(null)
 
-const userData: User = reactive({
-  email: '',
-  password: '',
-  slug: '',
-})
-
-const requestData: UserRequest = reactive({
-  user: userData,
-})
-
-const formSchema = toTypedSchema(userRequestSchema)
+const schema = toTypedSchema(userRequestSchema)
 const form = useForm({
-  validationSchema: formSchema,
+  validationSchema: schema,
 })
 
-const registerUser = async (payload: UserRequest) => {
+// const registerUser = async (payload: UserRequest) => {
+//   console.log('registerUser called with payload:', payload) // <--- Crucial log
+//   loading.value = true
+//   error.value = null
+//   try {
+//     const response = await axios.post<UserResponse>('http://localhost:3000/auth/signup', payload)
+//     responseData.value = response.data
+//     console.log(responseData.value)
+//   } catch (err) {
+//     error.value = err?.response?.data?.message || 'Something went wrong'
+//     console.error(err)
+//   } finally {
+//     loading.value = false
+//   }
+// }
+
+const onSubmit = form.handleSubmit(async (payload) => {
+  console.log('registerUser called with payload:', payload) // <--- Crucial log
   loading.value = true
   error.value = null
   try {
@@ -62,9 +68,8 @@ const registerUser = async (payload: UserRequest) => {
   } finally {
     loading.value = false
   }
-}
-
-const onSubmit = form.handleSubmit(registerUser)
+  console.log('Value of onSubmit:', onSubmit)
+})
 </script>
 
 <template>
@@ -74,63 +79,48 @@ const onSubmit = form.handleSubmit(registerUser)
       <CardDescription> Enter your information to create an account </CardDescription>
     </CardHeader>
     <CardContent>
-      <form @submit.prevent="onSubmit">
+      <form @submit="onSubmit">
         <div class="grid gap-4">
           <div class="grid gap-2">
-            <FormField name="username">
+            <FormField name="username" v-slot="{ componentField }">
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input type="text" placeholder="johndoe" v-model="userData.slug" required />
+                  <Input type="text" placeholder="johndoe" v-bind="componentField" required />
                 </FormControl>
                 <!-- <FormDescription> This is your public display name. </FormDescription> -->
                 <FormMessage />
               </FormItem>
             </FormField>
-            <!-- <Label for="slug">Username</Label> -->
-            <!-- <Input id="slug" type="text" placeholder="johndoe" v-model="userData.slug" required /> -->
           </div>
           <div class="grid gap-2">
-            <!-- <Label for="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="m@example.com"
-              v-model="userData.email"
-              required
-            /> -->
-            <FormField name="email">
+            <FormField name="email" v-slot="{ componentField }">
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input
                     type="email"
                     placeholder="johndoe@gmail.com"
-                    v-model="userData.email"
+                    v-bind="componentField"
                     required
                   />
                 </FormControl>
-                <!-- <FormDescription> This is your public display name. </FormDescription> -->
                 <FormMessage />
               </FormItem>
             </FormField>
           </div>
           <div class="grid gap-2">
-            <FormField name="password">
+            <FormField name="password" v-slot="{ componentField }">
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <PasswordInput id="password" v-model:password="userData.password" required />
+                  <Input id="password" type="password" v-bind="componentField" required />
                 </FormControl>
-                <!-- <FormDescription> This is your public display name. </FormDescription> -->
                 <FormMessage />
               </FormItem>
             </FormField>
-
-            <!-- <Label for="password">Password</Label> -->
-            <!-- <PasswordInput id="password" v-model:password="userData.password" required /> -->
           </div>
-          <Button type="submit" class="w-full" :disabled="loading">
+          <Button @click="onSubmit" class="w-full" :disabled="loading">
             {{ loading ? 'Creating Account...' : 'Create an account' }}
           </Button>
         </div>
