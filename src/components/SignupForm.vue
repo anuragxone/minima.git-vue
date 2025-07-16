@@ -9,57 +9,38 @@ export const containerClass = 'w-full h-screen flex items-center justify-center 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import axios from 'axios'
-import type { UserRequest, UserResponse } from '@/models/User'
-import { userRequestSchema } from '@/schemas/user'
+import type { User, UserRequest, UserResponse } from '@/models/User'
+import { userSchema } from '@/schemas/user'
 import SignupSuccessfulAlert from './SignupSuccessfulAlert.vue'
 import SignupFailedAlert from './SignupFailedAlert.vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormLabel,
-  FormMessage,
-  FormItem,
-} from '@/components/ui/form'
+import { FormControl, FormField, FormLabel, FormMessage, FormItem } from '@/components/ui/form'
 
 const responseData: Ref<UserResponse | null> = ref(null)
 const loading = ref(false)
 const error: Ref<string | null> = ref(null)
 
-const schema = toTypedSchema(userRequestSchema)
+const schema = toTypedSchema(userSchema)
 const form = useForm({
   validationSchema: schema,
 })
 
-// const registerUser = async (payload: UserRequest) => {
-//   console.log('registerUser called with payload:', payload) // <--- Crucial log
-//   loading.value = true
-//   error.value = null
-//   try {
-//     const response = await axios.post<UserResponse>('http://localhost:3000/auth/signup', payload)
-//     responseData.value = response.data
-//     console.log(responseData.value)
-//   } catch (err) {
-//     error.value = err?.response?.data?.message || 'Something went wrong'
-//     console.error(err)
-//   } finally {
-//     loading.value = false
-//   }
-// }
-
-const onSubmit = form.handleSubmit(async (payload) => {
+const onSubmit = form.handleSubmit(async (payload: User) => {
   console.log('registerUser called with payload:', payload) // <--- Crucial log
+  const userRequest: UserRequest = {
+    user: payload,
+  }
   loading.value = true
   error.value = null
   try {
-    const response = await axios.post<UserResponse>('http://localhost:3000/auth/signup', payload)
+    const response = await axios.post<UserResponse>(
+      'http://localhost:3000/auth/signup',
+      userRequest,
+    )
     responseData.value = response.data
     console.log(responseData.value)
   } catch (err) {
@@ -82,11 +63,11 @@ const onSubmit = form.handleSubmit(async (payload) => {
       <form @submit="onSubmit">
         <div class="grid gap-4">
           <div class="grid gap-2">
-            <FormField name="username" v-slot="{ componentField }">
+            <FormField name="slug" v-slot="{ componentField }">
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input type="text" placeholder="johndoe" v-bind="componentField" required />
+                  <Input type="text" placeholder="johndoe" v-bind="componentField" />
                 </FormControl>
                 <!-- <FormDescription> This is your public display name. </FormDescription> -->
                 <FormMessage />
@@ -98,12 +79,7 @@ const onSubmit = form.handleSubmit(async (payload) => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="johndoe@gmail.com"
-                    v-bind="componentField"
-                    required
-                  />
+                  <Input type="email" placeholder="johndoe@gmail.com" v-bind="componentField" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -114,13 +90,13 @@ const onSubmit = form.handleSubmit(async (payload) => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input id="password" type="password" v-bind="componentField" required />
+                  <Input id="password" type="password" v-bind="componentField" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             </FormField>
           </div>
-          <Button @click="onSubmit" class="w-full" :disabled="loading">
+          <Button class="w-full" :disabled="loading">
             {{ loading ? 'Creating Account...' : 'Create an account' }}
           </Button>
         </div>
