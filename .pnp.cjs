@@ -33,7 +33,8 @@ const RAW_RUNTIME_STATE =
           ["@tailwindcss/vite", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:4.1.11"],\
           ["@tsconfig/node22", "npm:22.0.2"],\
           ["@types/jsdom", "npm:21.1.7"],\
-          ["@types/node", "npm:24.0.13"],\
+          ["@types/node", "npm:24.0.14"],\
+          ["@typescript-eslint/types", "npm:8.37.0"],\
           ["@vee-validate/zod", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:4.15.1"],\
           ["@vitejs/plugin-vue", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:6.0.0"],\
           ["@vitest/eslint-plugin", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:1.3.4"],\
@@ -1927,10 +1928,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:24.0.13", {\
-        "packageLocation": "../.yarn/berry/cache/@types-node-npm-24.0.13-d12cba9041-10c0.zip/node_modules/@types/node/",\
+      ["npm:24.0.14", {\
+        "packageLocation": "../.yarn/berry/cache/@types-node-npm-24.0.14-fdce34fd3b-10c0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:24.0.13"],\
+          ["@types/node", "npm:24.0.14"],\
           ["undici-types", "npm:7.8.0"]\
         ],\
         "linkType": "HARD"\
@@ -2117,6 +2118,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/@typescript-eslint-types-npm-8.36.0-5cb6994f58-10c0.zip/node_modules/@typescript-eslint/types/",\
         "packageDependencies": [\
           ["@typescript-eslint/types", "npm:8.36.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:8.37.0", {\
+        "packageLocation": "../.yarn/berry/cache/@typescript-eslint-types-npm-8.37.0-8a49752767-10c0.zip/node_modules/@typescript-eslint/types/",\
+        "packageDependencies": [\
+          ["@typescript-eslint/types", "npm:8.37.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5165,7 +5173,8 @@ const RAW_RUNTIME_STATE =
           ["@tailwindcss/vite", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:4.1.11"],\
           ["@tsconfig/node22", "npm:22.0.2"],\
           ["@types/jsdom", "npm:21.1.7"],\
-          ["@types/node", "npm:24.0.13"],\
+          ["@types/node", "npm:24.0.14"],\
+          ["@typescript-eslint/types", "npm:8.37.0"],\
           ["@vee-validate/zod", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:4.15.1"],\
           ["@vitejs/plugin-vue", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:6.0.0"],\
           ["@vitest/eslint-plugin", "virtual:ee992eaf0841ef82e07a31bfbcf0677eda1c2b3e9459b2239af8cdedddca311eab478bba6ce809d215c52b1c2013af6c0fb52acababa61b8d87b64cbe1704c98#npm:1.3.4"],\
@@ -6693,7 +6702,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jiti", null],\
           ["@types/less", null],\
           ["@types/lightningcss", null],\
-          ["@types/node", "npm:24.0.13"],\
+          ["@types/node", "npm:24.0.14"],\
           ["@types/sass", null],\
           ["@types/sass-embedded", null],\
           ["@types/stylus", null],\
@@ -6809,7 +6818,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jiti", null],\
           ["@types/less", null],\
           ["@types/lightningcss", null],\
-          ["@types/node", "npm:24.0.13"],\
+          ["@types/node", "npm:24.0.14"],\
           ["@types/sass", null],\
           ["@types/sass-embedded", null],\
           ["@types/stylus", null],\
@@ -7080,7 +7089,7 @@ const RAW_RUNTIME_STATE =
           ["@types/edge-runtime__vm", null],\
           ["@types/happy-dom", null],\
           ["@types/jsdom", "npm:21.1.7"],\
-          ["@types/node", "npm:24.0.13"],\
+          ["@types/node", "npm:24.0.14"],\
           ["@types/vitest__browser", null],\
           ["@types/vitest__ui", null],\
           ["@vitest/browser", null],\
